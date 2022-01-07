@@ -79,7 +79,6 @@ def open_and_save_in_word(rtf_file):
     orig_file = rtf_file
     tmp_file_name = r'tmp.rtf'
     tmp_file = here.joinpath(tmp_file_name)
-    print(str(tmp_file))
     #try: ToDo: This should get some serious improvement.. 
     shutil.copyfile(orig_file, tmp_file)
     word = win32.gencache.EnsureDispatch('Word.Application')
