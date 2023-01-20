@@ -6,7 +6,7 @@ This simple python script walks your file system
  - runs through the list of rtfs in the db and opens them in MS Word and saves them
 
  Unfortunately pywin32 is really picky about file and foldernames. So this script copies the found file to a tmp file within the scripts location und after shrinking it copies it back.
- So make sure the script runs from a "simple path". Use at your own risk.
+ So make sure the script runs from a "simple path" with no white spaces or non-ascii characters. Use at your own risk.
 
  ## Usage
 
