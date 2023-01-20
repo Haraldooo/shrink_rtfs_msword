@@ -11,6 +11,7 @@ import click
 import win32com
 import win32com.client as win32
 from genericpath import exists
+from pywintypes import com_error
 
 
 def walk(top):
@@ -83,12 +84,15 @@ def open_and_save_in_word(rtf_file):
     tmp_file = here.joinpath(tmp_file_name)
     #try: ToDo: This should get some serious improvement.. 
     shutil.copyfile(orig_file, tmp_file)
-    word = win32.gencache.EnsureDispatch('Word.Application')
-    word.Visible = False
-    word.Documents.Open(str(tmp_file))
-    word.ActiveDocument.Save()
-    word.Application.Quit()
-    sleep(0.2)
+    try:
+        word = win32.gencache.EnsureDispatch('Word.Application')
+        word.Visible = False
+        word.Documents.Open(str(tmp_file))
+        word.ActiveDocument.Save()
+        word.Application.Quit()
+        sleep(0.2)
+    except com_error as e:
+        work_logger("open_and_save_in_word", rtf_file, e)
     shutil.copyfile(tmp_file, orig_file)
     #except:
     #    work_logger("_", rtf_file, "soMe ErRroR")
