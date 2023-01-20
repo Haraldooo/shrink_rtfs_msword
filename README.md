@@ -26,7 +26,7 @@ Options:
  ## MS Word ExportPictureWithMetafile
 
  Make sure that your MS Word instance is configured to "write small RTF files".
- This is accomplished with the following registry key (Office 2010 was used, might vary in newer versions):
+ This is accomplished with the following registry key (Office 2010 was used, use 15.0 and 16.0 for newer versions):
 
  ````
 Windows Registry Editor Version 5.00

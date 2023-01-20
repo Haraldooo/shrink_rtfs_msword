@@ -1,15 +1,17 @@
-from genericpath import exists
-import win32com
-import win32com.client as win32
+import datetime
 import os
 import os.path
 import pathlib
 import shutil
 import sqlite3
-import datetime
-from time import sleep
 from pprint import pprint
+from time import sleep
+
 import click
+import win32com
+import win32com.client as win32
+from genericpath import exists
+
 
 def walk(top):
     "uses scandir to find all files"
